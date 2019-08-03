@@ -14,7 +14,6 @@ extents = Vector2( 150, 50 )
 [node name="Search Game" type="Node"]
 
 [node name="Blue" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 960, 512 )
 script = ExtResource( 1 )
 __meta__ = {
