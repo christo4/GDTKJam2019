@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Area2D.gd" type="Script" id=1]
+[ext_resource path="res://1000x600Placeholder.png" type="Texture" id=2]
+[ext_resource path="res://Blue.gd" type="Script" id=3]
+[ext_resource path="res://500x400Placeholder.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 500, 300 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 250, 200 )
+
+[node name="Desk" type="Node"]
+
+[node name="Pink" type="Area2D" parent="."]
+position = Vector2( 960, 512 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Pink"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pink"]
+shape = SubResource( 1 )
+
+[node name="Blue" type="Area2D" parent="."]
+position = Vector2( 1280, 640 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Blue"]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blue"]
+shape = SubResource( 2 )
+[connection signal="mouse_entered" from="Pink" to="Pink" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_entered" from="Blue" to="Blue" method="_on_Blue_mouse_entered"]
