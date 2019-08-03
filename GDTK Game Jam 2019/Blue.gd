@@ -21,11 +21,9 @@ func _process(delta):
 		if x.z_index > z_index and x.get("entered"):
 			top_dog = false
 			break
-		else:
-			top_dog = true
 	if top_dog:
 		if Input.is_action_pressed("ui_left_mouse") and entered and not dragged:
-			mouse_position_old = get_viewport().get_mouse_position()
+			mouse_position_old = get_viewport().get_mouse_position() #sets the old mouse pos to an initial value upon clicking the box
 			dragged = true
 		elif Input.is_action_pressed("ui_left_mouse") and entered and dragged:
 			mouse_position = get_viewport().get_mouse_position()
@@ -34,8 +32,6 @@ func _process(delta):
 			set_position(position + mouse_offset)
 		else:
 			dragged = false
-	if overlap.size() == 0:
-		queue_free()
 
 func _on_Blue_mouse_entered():
 	entered = true
