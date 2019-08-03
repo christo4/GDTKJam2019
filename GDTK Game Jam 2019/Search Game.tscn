@@ -1,0 +1,155 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Blue.gd" type="Script" id=1]
+[ext_resource path="res://500x400Placeholder.png" type="Texture" id=2]
+[ext_resource path="res://WIN.gd" type="Script" id=3]
+[ext_resource path="res://WIN.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 250, 200 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 150, 50 )
+
+[node name="Search Game" type="Node"]
+
+[node name="Blue" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 960, 512 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Blue"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blue"]
+shape = SubResource( 2 )
+
+[node name="Purple" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 960, 512 )
+z_index = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Purple"]
+modulate = Color( 0.854902, 0.0823529, 0.772549, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Purple"]
+shape = SubResource( 2 )
+
+[node name="Red" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 960, 512 )
+z_index = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Red"]
+modulate = Color( 1, 0.113725, 0.113725, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Red"]
+shape = SubResource( 2 )
+
+[node name="Green" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 960, 512 )
+z_index = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Green"]
+modulate = Color( 0.219608, 0.768627, 0.172549, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green"]
+shape = SubResource( 2 )
+
+[node name="Magenta" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 960, 512 )
+z_index = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Magenta"]
+modulate = Color( 1, 0.0392157, 0.490196, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magenta"]
+shape = SubResource( 2 )
+
+[node name="Orange" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 960, 512 )
+z_index = 5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Orange"]
+modulate = Color( 1, 0.211765, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orange"]
+shape = SubResource( 2 )
+
+[node name="Dark Blue" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 960, 512 )
+z_index = 6
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Dark Blue"]
+modulate = Color( 0, 0.109804, 1, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Blue"]
+shape = SubResource( 2 )
+
+[node name="WIN" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 960, 512 )
+z_index = -1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WIN"]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WIN"]
+shape = SubResource( 3 )
+[connection signal="mouse_entered" from="Blue" to="Blue" method="_on_Blue_mouse_entered"]
+[connection signal="mouse_exited" from="Blue" to="Blue" method="_on_Blue_mouse_exited"]
+[connection signal="mouse_entered" from="Purple" to="Purple" method="_on_Blue_mouse_entered"]
+[connection signal="mouse_exited" from="Purple" to="Purple" method="_on_Blue_mouse_exited"]
+[connection signal="mouse_entered" from="Red" to="Red" method="_on_Blue_mouse_entered"]
+[connection signal="mouse_exited" from="Red" to="Red" method="_on_Blue_mouse_exited"]
+[connection signal="mouse_entered" from="Green" to="Green" method="_on_Blue_mouse_entered"]
+[connection signal="mouse_exited" from="Green" to="Green" method="_on_Blue_mouse_exited"]
+[connection signal="mouse_entered" from="Magenta" to="Magenta" method="_on_Blue_mouse_entered"]
+[connection signal="mouse_exited" from="Magenta" to="Magenta" method="_on_Blue_mouse_exited"]
+[connection signal="mouse_entered" from="Orange" to="Orange" method="_on_Blue_mouse_entered"]
+[connection signal="mouse_exited" from="Orange" to="Orange" method="_on_Blue_mouse_exited"]
+[connection signal="mouse_entered" from="Dark Blue" to="Dark Blue" method="_on_Blue_mouse_entered"]
+[connection signal="mouse_exited" from="Dark Blue" to="Dark Blue" method="_on_Blue_mouse_exited"]
+[connection signal="mouse_entered" from="WIN" to="WIN" method="_on_WIN_mouse_entered"]
+[connection signal="mouse_exited" from="WIN" to="WIN" method="_on_WIN_mouse_exited"]

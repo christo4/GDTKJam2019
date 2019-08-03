@@ -17,6 +17,7 @@ func _ready():
 func _process(delta):
 	top_dog = true
 	overlap = get_overlapping_areas()
+	print(overlap)
 	for x in overlap:
 		if x.z_index > z_index:
 			top_dog = false
@@ -37,8 +38,8 @@ func _process(delta):
 	if overlap.size() == 0:
 		queue_free()
 
-func _on_Blue_mouse_entered():
+func _on_Pink_mouse_entered():
 	entered = true
 
-func _on_Blue_mouse_exited():
+func _on_Pink_mouse_exited():
 	entered = false
