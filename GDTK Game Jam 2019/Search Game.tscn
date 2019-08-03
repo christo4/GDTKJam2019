@@ -5,16 +5,15 @@
 [ext_resource path="res://WIN.gd" type="Script" id=3]
 [ext_resource path="res://WIN.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 250, 200 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 150, 50 )
 
 [node name="Search Game" type="Node"]
 
 [node name="Blue" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 960, 512 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -25,7 +24,7 @@ __meta__ = {
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blue"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Purple" type="Area2D" parent="."]
 editor/display_folded = true
@@ -41,7 +40,7 @@ modulate = Color( 0.854902, 0.0823529, 0.772549, 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Purple"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Red" type="Area2D" parent="."]
 editor/display_folded = true
@@ -57,7 +56,7 @@ modulate = Color( 1, 0.113725, 0.113725, 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Red"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Green" type="Area2D" parent="."]
 editor/display_folded = true
@@ -73,7 +72,7 @@ modulate = Color( 0.219608, 0.768627, 0.172549, 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Green"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Magenta" type="Area2D" parent="."]
 editor/display_folded = true
@@ -89,7 +88,7 @@ modulate = Color( 1, 0.0392157, 0.490196, 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Magenta"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Orange" type="Area2D" parent="."]
 editor/display_folded = true
@@ -105,7 +104,7 @@ modulate = Color( 1, 0.211765, 0, 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Orange"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Dark Blue" type="Area2D" parent="."]
 editor/display_folded = true
@@ -121,7 +120,7 @@ modulate = Color( 0, 0.109804, 1, 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Blue"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="WIN" type="Area2D" parent="."]
 editor/display_folded = true
@@ -136,7 +135,7 @@ __meta__ = {
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WIN"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 [connection signal="mouse_entered" from="Blue" to="Blue" method="_on_Blue_mouse_entered"]
 [connection signal="mouse_exited" from="Blue" to="Blue" method="_on_Blue_mouse_exited"]
 [connection signal="mouse_entered" from="Purple" to="Purple" method="_on_Blue_mouse_entered"]

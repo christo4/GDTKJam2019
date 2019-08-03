@@ -18,7 +18,7 @@ func _process(delta):
 	top_dog = true
 	overlap = get_overlapping_areas()
 	for x in overlap:
-		if x.z_index > z_index:
+		if x.z_index > z_index and x.get("entered"):
 			top_dog = false
 			break
 		else:
