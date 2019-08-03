@@ -28,7 +28,7 @@ position = Vector2( 960, 256 )
 texture = ExtResource( 3 )
 
 [node name="RedButton" type="Sprite" parent="."]
-position = Vector2( 960, 256 )
+position = Vector2( 448, 256 )
 texture = ExtResource( 4 )
 [connection signal="mouse_entered" from="Glue" to="Glue" method="_on_Glue_mouse_entered"]
 [connection signal="mouse_exited" from="Glue" to="Glue" method="_on_Glue_mouse_exited"]
