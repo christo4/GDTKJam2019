@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Mash Button.gd" type="Script" id=1]
 [ext_resource path="res://400x300Placeholder.png" type="Texture" id=2]
 [ext_resource path="res://500x400Placeholder.png" type="Texture" id=3]
+[ext_resource path="res://ClickMeter.png" type="Texture" id=4]
+[ext_resource path="res://MeterMarker.png" type="Texture" id=5]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -35,5 +37,13 @@ animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mash Button"]
 shape = SubResource( 1 )
+
+[node name="Meter" type="Sprite" parent="."]
+position = Vector2( 960, 256 )
+texture = ExtResource( 4 )
+
+[node name="Marker" type="Sprite" parent="."]
+position = Vector2( 448, 256 )
+texture = ExtResource( 5 )
 [connection signal="mouse_entered" from="Mash Button" to="Mash Button" method="_on_Mash_Button_mouse_entered"]
 [connection signal="mouse_exited" from="Mash Button" to="Mash Button" method="_on_Mash_Button_mouse_exited"]
