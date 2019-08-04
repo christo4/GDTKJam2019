@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Mash Button.gd" type="Script" id=1]
-[ext_resource path="res://400x300Placeholder.png" type="Texture" id=2]
-[ext_resource path="res://500x400Placeholder.png" type="Texture" id=3]
+[ext_resource path="res://500x400Placeholder.png" type="Texture" id=2]
+[ext_resource path="res://400x300Placeholder.png" type="Texture" id=3]
 [ext_resource path="res://ClickMeter.png" type="Texture" id=4]
 [ext_resource path="res://MeterMarker.png" type="Texture" id=5]
 
@@ -10,12 +10,12 @@
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "Pressed",
+"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Pressed",
 "speed": 5.0
 } ]
 
@@ -39,7 +39,7 @@ animation = "Idle"
 shape = SubResource( 2 )
 
 [node name="Meter" type="Sprite" parent="."]
-position = Vector2( 960, 256 )
+position = Vector2( 914.24, 256 )
 texture = ExtResource( 4 )
 
 [node name="Marker" type="Sprite" parent="."]
