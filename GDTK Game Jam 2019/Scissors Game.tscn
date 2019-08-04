@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scissors Game.gd" type="Script" id=1]
 [ext_resource path="res://wallpaper.png" type="Texture" id=2]
 [ext_resource path="res://Hand.gd" type="Script" id=3]
 [ext_resource path="res://Scissors Game/Hand.png" type="Texture" id=4]
+[ext_resource path="res://Messages/AvoidItText.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 30.0
@@ -24,3 +25,8 @@ shape = SubResource( 1 )
 
 [node name="Player" type="Sprite" parent="Hand"]
 texture = ExtResource( 4 )
+
+[node name="AvoidItText" type="Sprite" parent="."]
+position = Vector2( 960, 110 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )

@@ -12,9 +12,13 @@ var yarn5  = false
 var gamewon
 const returnToScreen = 2.0
 var seconds_before_return
+var audio
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	audio = AudioStreamPlayer.new()
+	self.add_child(audio)
+	audio.stream = load("res://Sounds/cut.wav")
 	seconds_before_return = 0
 	rng.randomize()
 	var rnum = rng.randi_range(1,10)
@@ -53,7 +57,16 @@ func _ready():
 func _process(delta):	
 	if gamewon == true or gamewon == false:
 		if(seconds_before_return > returnToScreen):
+			if gamewon == true:
+				get_tree().get_root().get_node("Level Manager").wins += 1
+				get_tree().get_root().get_node("Level Manager").done += 1
+			elif gamewon == false:
+				get_tree().get_root().get_node("Level Manager").losses += 1
+				get_tree().get_root().get_node("Level Manager").done += 1
 			var manager = get_tree().get_root().get_node("Level Manager")
 			manager.yarn_desk_return()
 		else:
 			seconds_before_return += delta
+	if get_tree().get_root().get_node("Level Manager").time <= 0.2:
+		var manager = get_tree().get_root().get_node("Level Manager")
+		manager.yarn_desk_return()

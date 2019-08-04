@@ -19,7 +19,7 @@ func _ready():
 	camera = get_parent().get_node("Game Camera")
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_left_mouse") and entered and not completed:
+	if Input.is_action_just_pressed("ui_left_mouse") and entered and not completed and get_tree().get_root().get_node("Level Manager").time > 0.2:
 		camera.position = position
 		zoom_in = true
 	if zoom_in:
@@ -34,8 +34,11 @@ func _process(delta):
 	if zoom_out:
 		if gamewon == true:
 			get_node("Checkmark").show()
+			get_node("win").show()
 		elif gamewon == false:
 			get_node("Redex").show()
+			get_node("lose").show()
+
 		camera.zoom = Vector2(zoom_val, zoom_val)
 		zoom_val += zoom_inc
 		camera.position = Vector2(960, 540)

@@ -24,8 +24,14 @@ func _process(delta):
 			top_dog = true
 	if top_dog:
 		if Input.is_action_pressed("ui_left_mouse") and entered:
+			get_tree().get_root().get_node("Level Manager").done += 1
+			get_tree().get_root().get_node("Level Manager").wins += 1
 			var manager = get_tree().get_root().get_node("Level Manager")
 			manager.desk_return()
+			
+	if get_tree().get_root().get_node("Level Manager").time <= 0.2:
+		var manager = get_tree().get_root().get_node("Level Manager")
+		manager.desk_return()
 
 func _on_WIN_mouse_entered():
 	entered = true

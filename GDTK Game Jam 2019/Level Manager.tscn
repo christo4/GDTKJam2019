@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Level Manager.gd" type="Script" id=1]
 [ext_resource path="res://Clock.png" type="Texture" id=2]
+[ext_resource path="res://Primot Pro W01 Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://RichTextLabel.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/George Street Shuffle.wav" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_color = Color( 0.72549, 0.25098, 0.156863, 1 )
+font_data = ExtResource( 3 )
 
 [node name="Level Manager" type="Node"]
 script = ExtResource( 1 )
@@ -10,3 +18,17 @@ script = ExtResource( 1 )
 position = Vector2( 1728, 192 )
 z_index = 20
 texture = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Clock"]
+margin_left = -76.052
+margin_top = -78.0
+margin_right = 78.948
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.72549, 0.25098, 0.156863, 1 )
+scroll_active = false
+script = ExtResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true

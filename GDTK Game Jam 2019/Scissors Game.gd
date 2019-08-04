@@ -11,6 +11,7 @@ const spawn_frequency = 1.0
 var gamewon
 const gameLength = 8.0
 var gameTime
+var audio
 
 #dictionay which holds the random locations for the scissor spawning
 var random_coords = {
@@ -28,6 +29,9 @@ var random_coords = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	audio = AudioStreamPlayer.new()
+	self.add_child(audio)
+	audio.stream = load("res://Sounds/woosh.wav")
 	gamewon = true
 	gameTime = 0
 	rng.randomize()
@@ -36,6 +40,7 @@ func _ready():
 	#spawn_scissor(Vector2(x_off, y_off), true)
 
 func spawn_scissor(vector_location,init):
+	audio.play()
 	var newScissor = scissorImport.instance()
 	newScissor.position = vector_location
 	
@@ -69,10 +74,18 @@ func _process(delta):
 	gameTime += delta
 	
 	if gameTime > (gameLength+0.5):
+		get_tree().get_root().get_node("Level Manager").wins += 1
+		get_tree().get_root().get_node("Level Manager").done += 1
 		var manager = get_tree().get_root().get_node("Level Manager")
 		manager.scissor_desk_return()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if gamewon == false:
+		get_tree().get_root().get_node("Level Manager").losses += 1
+		get_tree().get_root().get_node("Level Manager").done += 1
+		var manager = get_tree().get_root().get_node("Level Manager")
+		manager.scissor_desk_return()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if get_tree().get_root().get_node("Level Manager").time <= 0.2:
 		var manager = get_tree().get_root().get_node("Level Manager")
 		manager.scissor_desk_return()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

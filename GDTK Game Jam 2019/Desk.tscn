@@ -1,20 +1,32 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=33 format=2]
 
-[ext_resource path="res://wallpaper.png" type="Texture" id=1]
-[ext_resource path="res://Desk/Desk.png" type="Texture" id=2]
-[ext_resource path="res://Desk/canvas.png" type="Texture" id=3]
-[ext_resource path="res://Button Mash Game.gd" type="Script" id=4]
-[ext_resource path="res://Desk/Glitter Tin.png" type="Texture" id=5]
-[ext_resource path="res://CheckMark.png" type="Texture" id=6]
-[ext_resource path="res://Search Game.gd" type="Script" id=7]
-[ext_resource path="res://Desk/Pencil Tin.png" type="Texture" id=8]
-[ext_resource path="res://Yarn Game.gd" type="Script" id=9]
-[ext_resource path="res://Desk/Yarn Tin.png" type="Texture" id=10]
-[ext_resource path="res://RedEx.png" type="Texture" id=11]
-[ext_resource path="res://Glue Game.gd" type="Script" id=12]
-[ext_resource path="res://Desk/Glue Tin.png" type="Texture" id=13]
-[ext_resource path="res://Scissor Game.gd" type="Script" id=14]
-[ext_resource path="res://Desk/Scissors Tin.png" type="Texture" id=15]
+[ext_resource path="res://Desk.gd" type="Script" id=1]
+[ext_resource path="res://wallpaper.png" type="Texture" id=2]
+[ext_resource path="res://Desk/Desk.png" type="Texture" id=3]
+[ext_resource path="res://Desk/canvas.png" type="Texture" id=4]
+[ext_resource path="res://Button Mash Game.gd" type="Script" id=5]
+[ext_resource path="res://Desk/Glitter Tin.png" type="Texture" id=6]
+[ext_resource path="res://CheckMark.png" type="Texture" id=7]
+[ext_resource path="res://Canvases/Glitter Win.png" type="Texture" id=8]
+[ext_resource path="res://Search Game.gd" type="Script" id=9]
+[ext_resource path="res://Desk/Pencil Tin.png" type="Texture" id=10]
+[ext_resource path="res://Canvases/Pencil Win.png" type="Texture" id=11]
+[ext_resource path="res://Yarn Game.gd" type="Script" id=12]
+[ext_resource path="res://Desk/Yarn Tin.png" type="Texture" id=13]
+[ext_resource path="res://RedEx.png" type="Texture" id=14]
+[ext_resource path="res://Canvases/Yarn Win.png" type="Texture" id=15]
+[ext_resource path="res://Canvases/Yarn Lose.png" type="Texture" id=16]
+[ext_resource path="res://Glue Game.gd" type="Script" id=17]
+[ext_resource path="res://Desk/Glue Tin.png" type="Texture" id=18]
+[ext_resource path="res://Canvases/Glue Win.png" type="Texture" id=19]
+[ext_resource path="res://Canvases/Glue Lose.png" type="Texture" id=20]
+[ext_resource path="res://Scissor Game.gd" type="Script" id=21]
+[ext_resource path="res://Desk/Scissors Tin.png" type="Texture" id=22]
+[ext_resource path="res://Canvases/Scissors Win.png" type="Texture" id=23]
+[ext_resource path="res://Canvases/Scissors Lose.png" type="Texture" id=24]
+[ext_resource path="res://BAD.png" type="Texture" id=25]
+[ext_resource path="res://GREAT.png" type="Texture" id=26]
+[ext_resource path="res://Ok.png" type="Texture" id=27]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 100 )
@@ -32,18 +44,21 @@ extents = Vector2( 100, 100 )
 extents = Vector2( 100, 100 )
 
 [node name="Desk" type="Node"]
+script = ExtResource( 1 )
 
 [node name="wallpaper" type="Sprite" parent="."]
-position = Vector2( 960, 540 )
-texture = ExtResource( 1 )
+position = Vector2( 957.52, 541.395 )
+scale = Vector2( 1.2867, 1.2867 )
+texture = ExtResource( 2 )
 
 [node name="Desk" type="Sprite" parent="."]
-position = Vector2( 960, 540 )
-texture = ExtResource( 2 )
+position = Vector2( 932.725, 616.712 )
+scale = Vector2( 1.14206, 1.14206 )
+texture = ExtResource( 3 )
 
 [node name="Canvas" type="Sprite" parent="."]
 position = Vector2( 960, 320 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Game Camera" type="Camera2D" parent="."]
 position = Vector2( 960, 540 )
@@ -53,104 +68,162 @@ smoothing_enabled = true
 [node name="Button Mash Game" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 960, 896 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Button Mash Game"]
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button Mash Game"]
 shape = SubResource( 1 )
 
 [node name="Checkmark" type="Sprite" parent="Button Mash Game"]
 visible = false
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
+
+[node name="win" type="Sprite" parent="Button Mash Game"]
+visible = false
+position = Vector2( 0, -574 )
+texture = ExtResource( 8 )
 
 [node name="Search Game" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 256, 896 )
-script = ExtResource( 7 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Search Game"]
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Search Game"]
 shape = SubResource( 2 )
 
 [node name="Checkmark" type="Sprite" parent="Search Game"]
 visible = false
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
+
+[node name="win" type="Sprite" parent="Search Game"]
+visible = false
+position = Vector2( 706, -591 )
+texture = ExtResource( 11 )
 
 [node name="Yarn Game" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 576, 809 )
-script = ExtResource( 9 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Yarn Game"]
-texture = ExtResource( 10 )
+texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Yarn Game"]
 shape = SubResource( 3 )
 
 [node name="Checkmark" type="Sprite" parent="Yarn Game"]
 visible = false
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Redex" type="Sprite" parent="Yarn Game"]
 visible = false
-texture = ExtResource( 11 )
+texture = ExtResource( 14 )
+
+[node name="win" type="Sprite" parent="Yarn Game"]
+visible = false
+texture = ExtResource( 15 )
+offset = Vector2( 382, -487 )
+
+[node name="lose" type="Sprite" parent="Yarn Game"]
+visible = false
+position = Vector2( 382, -487 )
+texture = ExtResource( 16 )
 
 [node name="Glue Game" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 1344, 809 )
-script = ExtResource( 12 )
+script = ExtResource( 17 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Glue Game"]
-texture = ExtResource( 13 )
+texture = ExtResource( 18 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Glue Game"]
 shape = SubResource( 4 )
 
 [node name="Checkmark" type="Sprite" parent="Glue Game"]
 visible = false
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Redex" type="Sprite" parent="Glue Game"]
 visible = false
-texture = ExtResource( 11 )
+texture = ExtResource( 14 )
+
+[node name="win" type="Sprite" parent="Glue Game"]
+visible = false
+texture = ExtResource( 19 )
+offset = Vector2( -383, -486 )
+
+[node name="lose" type="Sprite" parent="Glue Game"]
+visible = false
+position = Vector2( -383, -486 )
+texture = ExtResource( 20 )
 
 [node name="Scissor Game" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 1664, 896 )
-script = ExtResource( 14 )
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Scissor Game"]
-texture = ExtResource( 15 )
+texture = ExtResource( 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scissor Game"]
 shape = SubResource( 5 )
 
 [node name="Checkmark" type="Sprite" parent="Scissor Game"]
 visible = false
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Redex" type="Sprite" parent="Scissor Game"]
 visible = false
-texture = ExtResource( 11 )
+texture = ExtResource( 14 )
+
+[node name="win" type="Sprite" parent="Scissor Game"]
+visible = false
+position = Vector2( -705, -576 )
+texture = ExtResource( 23 )
+
+[node name="lose" type="Sprite" parent="Scissor Game"]
+visible = false
+position = Vector2( -705, -576 )
+texture = ExtResource( 24 )
+
+[node name="BAD" type="Sprite" parent="."]
+visible = false
+position = Vector2( 945.157, 831.438 )
+scale = Vector2( 0.442098, 0.442098 )
+texture = ExtResource( 25 )
+
+[node name="GREAT" type="Sprite" parent="."]
+visible = false
+position = Vector2( 928.419, 831.438 )
+scale = Vector2( 0.442098, 0.442098 )
+texture = ExtResource( 26 )
+
+[node name="Ok" type="Sprite" parent="."]
+visible = false
+position = Vector2( 930.923, 831.438 )
+scale = Vector2( 0.437247, 0.437247 )
+texture = ExtResource( 27 )
 [connection signal="mouse_entered" from="Button Mash Game" to="Button Mash Game" method="_on_Button_Mash_Game_mouse_entered"]
 [connection signal="mouse_exited" from="Button Mash Game" to="Button Mash Game" method="_on_Button_Mash_Game_mouse_exited"]
 [connection signal="mouse_entered" from="Search Game" to="Search Game" method="_on_Search_Game_mouse_entered"]

@@ -25,6 +25,7 @@ func _process(delta):
 		if Input.is_action_pressed("ui_left_mouse") and entered and not dragged:
 			mouse_position_old = get_viewport().get_mouse_position() #sets the old mouse pos to an initial value upon clicking the box
 			dragged = true
+			get_parent().get_node("wallpaper").audio.play()
 		elif Input.is_action_pressed("ui_left_mouse") and entered and dragged:
 			mouse_position = get_viewport().get_mouse_position()
 			mouse_offset = mouse_position - mouse_position_old

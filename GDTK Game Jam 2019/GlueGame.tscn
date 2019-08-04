@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://wallpaper.png" type="Texture" id=1]
 [ext_resource path="res://Glue.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://ClickMeterBullseye.png" type="Texture" id=4]
 [ext_resource path="res://MeterMarker.png" type="Texture" id=5]
 [ext_resource path="res://Glue Game/Glue.png" type="Texture" id=6]
+[ext_resource path="res://Messages/SqueezeIt.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 212, 212 )
@@ -41,5 +42,10 @@ texture = ExtResource( 5 )
 visible = false
 position = Vector2( 960, 448 )
 texture = ExtResource( 6 )
+
+[node name="SqueezeIt" type="Sprite" parent="."]
+position = Vector2( 960, 64 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 7 )
 [connection signal="mouse_entered" from="Glue" to="Glue" method="_on_Glue_mouse_entered"]
 [connection signal="mouse_exited" from="Glue" to="Glue" method="_on_Glue_mouse_exited"]

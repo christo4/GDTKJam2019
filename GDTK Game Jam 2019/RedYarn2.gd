@@ -10,9 +10,11 @@ func _ready():
 func _process(delta):
 	if get_parent().gamewon != true and get_parent().gamewon != false:
 		if Input.is_action_just_pressed("ui_left_mouse") and entered and get_parent().yarn2 == true:
+			get_parent().audio.play()
 			get_parent().gamewon = true
 			$Sprite.play("cut")
 		if Input.is_action_just_pressed("ui_left_mouse") and entered and get_parent().yarn2 != true:
+			get_parent().audio.play()
 			get_parent().gamewon = false
 			$Sprite.play("cut")
 

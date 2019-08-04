@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://YarnGame.gd" type="Script" id=1]
 [ext_resource path="res://wallpaper.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://GreenYarn.gd" type="Script" id=15]
 [ext_resource path="res://Yarn Game/green yarn full.png" type="Texture" id=16]
 [ext_resource path="res://Yarn Game/green yarn cut.png" type="Texture" id=17]
+[ext_resource path="res://Messages/CutIt.png" type="Texture" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -162,6 +163,11 @@ frames = SubResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GreenYarn"]
 shape = SubResource( 2 )
+
+[node name="CutIt" type="Sprite" parent="."]
+position = Vector2( 960, 128 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 18 )
 [connection signal="mouse_entered" from="RedYarn" to="RedYarn" method="_on_RedYarn_mouse_entered"]
 [connection signal="mouse_exited" from="RedYarn" to="RedYarn" method="_on_RedYarn_mouse_exited"]
 [connection signal="mouse_entered" from="BlueYarn" to="BlueYarn" method="_on_BlueYarn_mouse_entered"]
