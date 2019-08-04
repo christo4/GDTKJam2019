@@ -13,14 +13,14 @@ const spawn_frequency = 1.0
 var random_coords = {
 	0: Vector2(480,0),
 	1: Vector2(1440,0),
-	2: Vector2(1910,0),
+	2: Vector2(1900,0),
 	3: Vector2(0,270),
 	4: Vector2(0,810),
-	5: Vector2(0,1070),
-	6: Vector2(480,1070),
-	7: Vector2(1440,1070),
-	8: Vector2(1910,810),
-	9: Vector2(1910,270)}
+	5: Vector2(0,1050),
+	6: Vector2(480,1050),
+	7: Vector2(1440,1050),
+	8: Vector2(1900,810),
+	9: Vector2(1900,270)}
 
 
 # Called when the node enters the scene tree for the first time.
