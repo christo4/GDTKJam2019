@@ -3,9 +3,14 @@ extends Area2D
 var entered
 var overlap
 var top_dog
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	entered = false
+	rng.randomize()
+	var posX = rng.randi_range(300,1620)
+	var posY = rng.randi_range(100,980)
+	position = Vector2(posX,posY)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
