@@ -9,6 +9,7 @@ var yarn2  = false
 var yarn3  = false
 var yarn4  = false
 var yarn5  = false
+var gamewon
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,6 +46,8 @@ func _ready():
 		10:
 			yarn4 = true
 			yarn5 = true
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func _process(delta):
+	if gamewon == true or gamewon == false:
+		var manager = get_tree().get_root().get_node("Level Manager")
+		manager.yarn_desk_return()

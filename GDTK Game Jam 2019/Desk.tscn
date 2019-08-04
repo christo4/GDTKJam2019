@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Desk Prototype.png" type="Texture" id=1]
 [ext_resource path="res://Button Mash Game.gd" type="Script" id=2]
@@ -6,11 +6,16 @@
 [ext_resource path="res://CheckMark.png" type="Texture" id=4]
 [ext_resource path="res://Search Game.gd" type="Script" id=5]
 [ext_resource path="res://Search Game.png" type="Texture" id=6]
+[ext_resource path="res://Yarn Game.gd" type="Script" id=7]
+[ext_resource path="res://RedEx.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 100 )
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 100, 100 )
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 100, 100 )
 
 [node name="Desk" type="Node"]
@@ -57,7 +62,27 @@ shape = SubResource( 2 )
 [node name="Checkmark" type="Sprite" parent="Search Game"]
 visible = false
 texture = ExtResource( 4 )
+
+[node name="Yarn Game" type="Area2D" parent="."]
+position = Vector2( 247, 529 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yarn Game"]
+shape = SubResource( 3 )
+
+[node name="Checkmark" type="Sprite" parent="Yarn Game"]
+visible = false
+texture = ExtResource( 4 )
+
+[node name="Redex" type="Sprite" parent="Yarn Game"]
+visible = false
+texture = ExtResource( 8 )
 [connection signal="mouse_entered" from="Button Mash Game" to="Button Mash Game" method="_on_Button_Mash_Game_mouse_entered"]
 [connection signal="mouse_exited" from="Button Mash Game" to="Button Mash Game" method="_on_Button_Mash_Game_mouse_exited"]
 [connection signal="mouse_entered" from="Search Game" to="Search Game" method="_on_Search_Game_mouse_entered"]
 [connection signal="mouse_exited" from="Search Game" to="Search Game" method="_on_Search_Game_mouse_exited"]
+[connection signal="mouse_entered" from="Yarn Game" to="Yarn Game" method="_on_Yarn_Game_mouse_entered"]
+[connection signal="mouse_exited" from="Yarn Game" to="Yarn Game" method="_on_Yarn_Game_mouse_exited"]
