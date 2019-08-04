@@ -10,9 +10,12 @@ var yarn3  = false
 var yarn4  = false
 var yarn5  = false
 var gamewon
+const returnToScreen = 2.0
+var seconds_before_return
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	seconds_before_return = 0
 	rng.randomize()
 	var rnum = rng.randi_range(1,10)
 	match rnum:
@@ -47,7 +50,10 @@ func _ready():
 			yarn4 = true
 			yarn5 = true
 
-func _process(delta):
+func _process(delta):	
 	if gamewon == true or gamewon == false:
-		var manager = get_tree().get_root().get_node("Level Manager")
-		manager.yarn_desk_return()
+		if(seconds_before_return > returnToScreen):
+			var manager = get_tree().get_root().get_node("Level Manager")
+			manager.yarn_desk_return()
+		else:
+			seconds_before_return += delta

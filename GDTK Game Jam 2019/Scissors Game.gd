@@ -8,6 +8,9 @@ var rng = RandomNumberGenerator.new()
 const screen_middle = Vector2(960, 540)
 const default_forward = Vector2(1,0)
 const spawn_frequency = 1.0
+var gamewon
+const gameLength = 8.0
+var gameTime
 
 #dictionay which holds the random locations for the scissor spawning
 var random_coords = {
@@ -25,6 +28,8 @@ var random_coords = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	gamewon = true
+	gameTime = 0
 	rng.randomize()
 	seconds_since_spawn = 0
 	scissorImport = load("res://Scissor.tscn")
@@ -56,16 +61,18 @@ func get_random_spawn():
 	return random_coords[spawn_key]
 		
 func _process(delta):
-	if(seconds_since_spawn > spawn_frequency):
+	if seconds_since_spawn > spawn_frequency and gameTime < gameLength:
 		spawn_scissor(get_random_spawn(),false)
 		seconds_since_spawn = 0
 	else:
-		seconds_since_spawn += delta	
-		
+		seconds_since_spawn += delta
+	gameTime += delta
 	
-
-	
-	
-	
-
-	
+	if gameTime > (gameLength+0.5):
+		var manager = get_tree().get_root().get_node("Level Manager")
+		manager.scissor_desk_return()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if gamewon == false:
+		var manager = get_tree().get_root().get_node("Level Manager")
+		manager.scissor_desk_return()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

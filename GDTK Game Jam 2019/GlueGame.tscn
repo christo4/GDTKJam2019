@@ -1,34 +1,45 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Glue.gd" type="Script" id=1]
-[ext_resource path="res://glue.jpg" type="Texture" id=2]
-[ext_resource path="res://ClickMeterBullseye.png" type="Texture" id=3]
-[ext_resource path="res://MeterMarker.png" type="Texture" id=4]
+[ext_resource path="res://wallpaper.png" type="Texture" id=1]
+[ext_resource path="res://Glue.gd" type="Script" id=2]
+[ext_resource path="res://Glue Game/Glue Container.png" type="Texture" id=3]
+[ext_resource path="res://ClickMeterBullseye.png" type="Texture" id=4]
+[ext_resource path="res://MeterMarker.png" type="Texture" id=5]
+[ext_resource path="res://Glue Game/Glue.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 212, 212 )
 
 [node name="GlueGame" type="Node2D"]
 
+[node name="wallpaper" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+texture = ExtResource( 1 )
+
 [node name="Glue" type="Area2D" parent="."]
 position = Vector2( 960, 768 )
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Glue"]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Glue"]
 shape = SubResource( 1 )
 
 [node name="ClickMeterBullseye" type="Sprite" parent="."]
 position = Vector2( 960, 256 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="RedButton" type="Sprite" parent="."]
 position = Vector2( 448, 256 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
+
+[node name="Gluesplat" type="Sprite" parent="."]
+visible = false
+position = Vector2( 960, 448 )
+texture = ExtResource( 6 )
 [connection signal="mouse_entered" from="Glue" to="Glue" method="_on_Glue_mouse_entered"]
 [connection signal="mouse_exited" from="Glue" to="Glue" method="_on_Glue_mouse_exited"]
