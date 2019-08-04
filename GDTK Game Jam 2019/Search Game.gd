@@ -19,7 +19,7 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_left_mouse") and entered and not completed:
-		camera.position = Vector2(246, 241)
+		camera.position = Vector2(247, 838)
 		zoom_in = true
 	if zoom_in:
 		camera.zoom = Vector2(zoom_val, zoom_val)
@@ -29,7 +29,7 @@ func _process(delta):
 			zoom_out = true
 			completed = true
 			var manager = get_tree().get_root().get_node("Level Manager")
-			manager.load_minigame("res://Button Mash Game.tscn")
+			manager.load_minigame("res://Search Game.tscn")
 	if zoom_out:
 		get_node("Checkmark").show()
 		camera.zoom = Vector2(zoom_val, zoom_val)
@@ -38,8 +38,8 @@ func _process(delta):
 		if zoom_val > 1.00:
 			zoom_out = false
 
-func _on_Button_Mash_Game_mouse_entered():
+func _on_Search_Game_mouse_entered():
 	entered = true
 
-func _on_Button_Mash_Game_mouse_exited():
+func _on_Search_Game_mouse_exited():
 	entered = false

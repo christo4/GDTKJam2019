@@ -22,8 +22,8 @@ func _process(delta):
 	elif marker.position.x >= 1216 and marker.position.x < 1472:
 		marker.position.x -= 3
 	elif marker.position.x >= 1472:
-		print("YOU WIN!")
-		get_tree().quit()
+		var manager = get_tree().get_root().get_node("Level Manager")
+		manager.desk_return()
 
 func _on_Mash_Button_mouse_entered():
 	entered = true

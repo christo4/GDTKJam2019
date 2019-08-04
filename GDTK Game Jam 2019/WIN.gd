@@ -19,8 +19,8 @@ func _process(delta):
 			top_dog = true
 	if top_dog:
 		if Input.is_action_pressed("ui_left_mouse") and entered:
-			print("YOU WIN!")
-			get_tree().quit()
+			var manager = get_tree().get_root().get_node("Level Manager")
+			manager.desk_return()
 
 func _on_WIN_mouse_entered():
 	entered = true
