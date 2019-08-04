@@ -29,3 +29,21 @@ func yarn_desk_return():
 		get_tree().get_root().add_child(desk_save)
 		get_tree().set_current_scene(desk_save)
 		desk_save = null
+
+func glue_desk_return():
+	if desk_save != null:
+		var status = get_tree().get_current_scene().get_node("Glue").gamewon
+		get_tree().get_current_scene().queue_free()
+		desk_save.get_node("Glue Game").gamewon = status
+		get_tree().get_root().add_child(desk_save)
+		get_tree().set_current_scene(desk_save)
+		desk_save = null
+
+func scissor_desk_return():
+	if desk_save != null:
+		var status = get_tree().get_current_scene().gamewon
+		get_tree().get_current_scene().queue_free()
+		desk_save.get_node("Scissor Game").gamewon = status
+		get_tree().get_root().add_child(desk_save)
+		get_tree().set_current_scene(desk_save)
+		desk_save = null

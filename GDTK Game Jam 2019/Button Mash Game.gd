@@ -19,7 +19,7 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_left_mouse") and entered and not completed:
-		camera.position = Vector2(246, 241)
+		camera.position = position
 		zoom_in = true
 	if zoom_in:
 		camera.zoom = Vector2(zoom_val, zoom_val)

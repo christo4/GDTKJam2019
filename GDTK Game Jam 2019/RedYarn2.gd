@@ -8,10 +8,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_left_mouse") and entered and get_parent().yarn2 == true:
-		get_parent().gamewon = true
-	if Input.is_action_just_pressed("ui_left_mouse") and entered and get_parent().yarn2 != true:
-		get_parent().gamewon = false
+	if get_parent().gamewon != true and get_parent().gamewon != false:
+		if Input.is_action_just_pressed("ui_left_mouse") and entered and get_parent().yarn2 == true:
+			get_parent().gamewon = true
+			$Sprite.play("cut")
+		if Input.is_action_just_pressed("ui_left_mouse") and entered and get_parent().yarn2 != true:
+			get_parent().gamewon = false
+			$Sprite.play("cut")
 
 
 func _on_BlueYarn_mouse_entered():

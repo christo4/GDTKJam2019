@@ -1,13 +1,20 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Desk Prototype.png" type="Texture" id=1]
-[ext_resource path="res://Button Mash Game.gd" type="Script" id=2]
-[ext_resource path="res://Button Mash Game.png" type="Texture" id=3]
-[ext_resource path="res://CheckMark.png" type="Texture" id=4]
-[ext_resource path="res://Search Game.gd" type="Script" id=5]
-[ext_resource path="res://Search Game.png" type="Texture" id=6]
-[ext_resource path="res://Yarn Game.gd" type="Script" id=7]
-[ext_resource path="res://RedEx.png" type="Texture" id=8]
+[ext_resource path="res://wallpaper.png" type="Texture" id=1]
+[ext_resource path="res://Desk/Desk.png" type="Texture" id=2]
+[ext_resource path="res://Desk/canvas.png" type="Texture" id=3]
+[ext_resource path="res://Button Mash Game.gd" type="Script" id=4]
+[ext_resource path="res://Desk/Glitter Tin.png" type="Texture" id=5]
+[ext_resource path="res://CheckMark.png" type="Texture" id=6]
+[ext_resource path="res://Search Game.gd" type="Script" id=7]
+[ext_resource path="res://Desk/Pencil Tin.png" type="Texture" id=8]
+[ext_resource path="res://Yarn Game.gd" type="Script" id=9]
+[ext_resource path="res://Desk/Yarn Tin.png" type="Texture" id=10]
+[ext_resource path="res://RedEx.png" type="Texture" id=11]
+[ext_resource path="res://Glue Game.gd" type="Script" id=12]
+[ext_resource path="res://Desk/Glue Tin.png" type="Texture" id=13]
+[ext_resource path="res://Scissor Game.gd" type="Script" id=14]
+[ext_resource path="res://Desk/Scissors Tin.png" type="Texture" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 100 )
@@ -18,11 +25,25 @@ extents = Vector2( 100, 100 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 100, 100 )
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 100, 100 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 100, 100 )
+
 [node name="Desk" type="Node"]
+
+[node name="wallpaper" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+texture = ExtResource( 1 )
 
 [node name="Desk" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
+
+[node name="Canvas" type="Sprite" parent="."]
+position = Vector2( 960, 320 )
+texture = ExtResource( 3 )
 
 [node name="Game Camera" type="Camera2D" parent="."]
 position = Vector2( 960, 540 )
@@ -30,59 +51,113 @@ current = true
 smoothing_enabled = true
 
 [node name="Button Mash Game" type="Area2D" parent="."]
-position = Vector2( 246, 241 )
-script = ExtResource( 2 )
+editor/display_folded = true
+position = Vector2( 960, 896 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Button Mash Game"]
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button Mash Game"]
 shape = SubResource( 1 )
 
 [node name="Checkmark" type="Sprite" parent="Button Mash Game"]
 visible = false
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
 [node name="Search Game" type="Area2D" parent="."]
-position = Vector2( 247, 838 )
-script = ExtResource( 5 )
+editor/display_folded = true
+position = Vector2( 256, 896 )
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Search Game"]
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Search Game"]
 shape = SubResource( 2 )
 
 [node name="Checkmark" type="Sprite" parent="Search Game"]
 visible = false
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
 [node name="Yarn Game" type="Area2D" parent="."]
-position = Vector2( 247, 529 )
-script = ExtResource( 7 )
+editor/display_folded = true
+position = Vector2( 576, 809 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="Sprite" type="Sprite" parent="Yarn Game"]
+texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Yarn Game"]
 shape = SubResource( 3 )
 
 [node name="Checkmark" type="Sprite" parent="Yarn Game"]
 visible = false
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
 [node name="Redex" type="Sprite" parent="Yarn Game"]
 visible = false
-texture = ExtResource( 8 )
+texture = ExtResource( 11 )
+
+[node name="Glue Game" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1344, 809 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Glue Game"]
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Glue Game"]
+shape = SubResource( 4 )
+
+[node name="Checkmark" type="Sprite" parent="Glue Game"]
+visible = false
+texture = ExtResource( 6 )
+
+[node name="Redex" type="Sprite" parent="Glue Game"]
+visible = false
+texture = ExtResource( 11 )
+
+[node name="Scissor Game" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1664, 896 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Scissor Game"]
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scissor Game"]
+shape = SubResource( 5 )
+
+[node name="Checkmark" type="Sprite" parent="Scissor Game"]
+visible = false
+texture = ExtResource( 6 )
+
+[node name="Redex" type="Sprite" parent="Scissor Game"]
+visible = false
+texture = ExtResource( 11 )
 [connection signal="mouse_entered" from="Button Mash Game" to="Button Mash Game" method="_on_Button_Mash_Game_mouse_entered"]
 [connection signal="mouse_exited" from="Button Mash Game" to="Button Mash Game" method="_on_Button_Mash_Game_mouse_exited"]
 [connection signal="mouse_entered" from="Search Game" to="Search Game" method="_on_Search_Game_mouse_entered"]
 [connection signal="mouse_exited" from="Search Game" to="Search Game" method="_on_Search_Game_mouse_exited"]
 [connection signal="mouse_entered" from="Yarn Game" to="Yarn Game" method="_on_Yarn_Game_mouse_entered"]
 [connection signal="mouse_exited" from="Yarn Game" to="Yarn Game" method="_on_Yarn_Game_mouse_exited"]
+[connection signal="mouse_entered" from="Glue Game" to="Glue Game" method="_on_Glue_Game_mouse_entered"]
+[connection signal="mouse_exited" from="Glue Game" to="Glue Game" method="_on_Glue_Game_mouse_exited"]
+[connection signal="mouse_entered" from="Scissor Game" to="Scissor Game" method="_on_Scissor__Game_mouse_entered"]
+[connection signal="mouse_exited" from="Scissor Game" to="Scissor Game" method="_on_Scissor__Game_mouse_exited"]

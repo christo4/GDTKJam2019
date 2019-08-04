@@ -16,10 +16,7 @@ func _process(delta):
 	
 	
 func hit_scissor(object_collided):	
-	
 	if(object_collided.get_name() == "Hand"):
-		print("you lose")
-	else:
-		print("you good")
+		get_parent().gamewon = false
 
 
